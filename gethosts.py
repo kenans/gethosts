@@ -10,14 +10,16 @@ def write_hosts(f):
     start = False
     while True:
         line = response.readline()
-        if start == False and "#google hosts 2015 by 360kb.com" in line:
+        if start == False and "#google" in line and "hosts" in line:
             start = True
+            f.write("#google hosts begin\n")
+            continue
         if start == True:
             line = line.replace("&nbsp;", "")
             line = re.sub("<[^>]+>", "", line)
             f.write(line)
             #print line 
-        if start == True and "#google hosts 2015 end" in line:
+        if start == True and "#google" in line and "hosts" in line:
             start = False
             break
     
