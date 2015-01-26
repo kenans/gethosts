@@ -1,6 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+# Filename: gethosts.py
+# This script is to fetch an available hosts file for goolge in China
+# Author: kenansun0@gmail.com
+# Date: 01/2015
+
 import urllib2
 import re
 
