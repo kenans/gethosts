@@ -53,3 +53,5 @@ if __name__ == "__main__":
             print "Invalid url!"
         elif res == -2:
             print "Hosts not found!"
+    else:
+        print "Get hosts successfully!"
