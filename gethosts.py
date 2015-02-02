@@ -15,7 +15,8 @@ returns -1 if url is no longer valid
         -2 if no hosts found
          0 otherwise'''
     try:
-        url = "http://www.360kb.com/kb/2_122.html"
+        # url = "http://www.360kb.com/kb/2_122.html"
+        url = "http://www.360kb.com/kb/2_150.html"
     except:
         return -1
     response = urllib2.urlopen(url)
