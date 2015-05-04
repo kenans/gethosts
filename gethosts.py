@@ -39,10 +39,21 @@ returns -1 if url is no longer valid
             return 0
 def main():
     f_name = "hosts"
-    f = open(f_name,"w")
-    res =  write_hosts(f)
-    f.close()
-    return res
+    lines = []
+    try:
+        f = open('reserved.txt')
+        lines = f.readlines()
+    except:
+        pass
+
+    try:
+        with open(f_name, 'w') as f:
+            for line in lines:
+                f.write(line)
+            return write_hosts(f)
+    except:
+        print 'Error: unable to create', f_name, 'file'
+
 if __name__ == "__main__":
     res = main()
     if res != 0:
