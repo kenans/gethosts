@@ -41,9 +41,12 @@ def main():
     f_name = "hosts"
     lines = []
     try:
+        print "Reading reserved.txt..."
         f = open('reserved.txt')
         lines = f.readlines()
+        print "Read reserved.txt successfully"
     except:
+        print "reserved.txt not found"
         pass
 
     try:
@@ -66,4 +69,4 @@ if __name__ == "__main__":
         elif res == -2:
             print "Hosts not found!"
     else:
-        print "Get hosts successfully!"
+        print "All done"
