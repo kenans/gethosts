@@ -15,8 +15,8 @@ returns -1 if url is no longer valid
         -2 if no hosts found
          0 otherwise'''
     try:
-        # url = "http://www.360kb.com/kb/2_122.html"
-        url = "http://www.360kb.com/kb/2_150.html"
+        url = "http://www.360kb.com/kb/2_122.html"
+        #url = "http://www.360kb.com/kb/2_150.html"
     except:
         return -1
     response = urllib2.urlopen(url)
@@ -48,12 +48,17 @@ def main():
     except:
         print "reserved.txt not found"
         pass
-
+    import os
+    has_old_file = False
+    if f_name in os.listdir('.'):
+        os.rename(f_name, f_name + '_bk') 
+        has_old_file = True
     try:
         with open(f_name, 'w') as f:
             for line in lines:
                 f.write(line)
-            return write_hosts(f)
+            ret = write_hosts(f)
+            return ret
     except:
         print 'Error: unable to create', f_name, 'file'
 
