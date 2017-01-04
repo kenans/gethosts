@@ -8,6 +8,8 @@
 
 import urllib2
 import re
+import os
+import socket
 
 def write_hosts(f):
     '''Try to get hosts file content from the Internet.
@@ -55,6 +57,7 @@ def main():
         has_old_file = True
     try:
         with open(f_name, 'w') as f:
+            f.write('127.0.0.1\t%s%s' % (socket.gethostname(), os.linesep))
             for line in lines:
                 f.write(line)
             ret = write_hosts(f)
